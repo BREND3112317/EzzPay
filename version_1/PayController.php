@@ -35,6 +35,16 @@ class ecPay {
             $pay->Send['TotalAmount']       = $TotalAmount;
             $pay->Send['TradeDesc']         = $TradeDesc;
             $pay->Send['ChoosePayment']     = ECPay_PaymentMethod::ALL;
+
+            if(isset($opt['returnURL'])){
+                $pay->Send['ReturnURL'] = $opt['returnURL'];
+            }
+            if(isset($opt['time'])){
+                $pay->Send['MerchantTradeDate'] = $opt['time'];
+            }
+            if(isset($opt['Payment'])){
+                $pay->Send['ChoosePayment'] = $opt['Payment'];
+            }
     
             array_push($pay->Send['Items'], array('Name' => "歐付寶黑芝麻豆漿", 'Price' => (int)"2000",
                        'Currency' => "元", 'Quantity' => (int) "1", 'URL' => "dedwed"));

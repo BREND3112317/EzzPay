@@ -4,7 +4,7 @@
 require_once("PayController.php");
 
 
-$trade_id = "testOrder" . time();
-$totalAmount = 100;
-$trandeDesc = "test";
-ecPay::Pay($trade_id, $totalAmount, $trandeDesc);
+$trade_id       = $_POST['trade_id'];
+$totalAmount    = $_POST['total_amount'];
+$tradeDesc      = $_POST['trade_description'];
+ecPay::Pay($trade_id, $totalAmount, $tradeDesc);
